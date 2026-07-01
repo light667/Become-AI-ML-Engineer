@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Roadmap Carrière IA/ML — Python Developer → AI/ML Engineer Senior</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  #root:empty::after {
+    content: "Chargement...";
+    display: block;
+    text-align: center;
+    padding: 40px;
+    font-family: -apple-system, sans-serif;
+    color: #94a3b8;
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- React 18 (versions figées pour stabilité, aucune dépendance à Babel : le JSX est déjà précompilé ci-dessous) -->
+<script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  function boot() {
+    if (typeof React === "undefined" || typeof ReactDOM === "undefined") {
+      document.getElementById("root").innerHTML =
+        '<div style="font-family:sans-serif;text-align:center;padding:40px;color:#ef4444;">' +
+        "Impossible de charger React depuis le CDN. Vérifie ta connexion internet et réessaie." +
+        "</div>";
+      return;
+    }
+
+    var useState = React.useState;
+    var useEffect = React.useEffect;
+
+const DATA = {
+  "STAGES": [{
+    "id": 1,
+    "icon": "🐍",
+    "title": "Étape 1",
+    "subtitle": "Python Developer",
+    "color": "#0ea5e9",
+    "light": "#f0f9ff",
+    "border": "#bae6fd",
+    "duration": "1 mois",
+    "goal": "Python avancé · Tests · APIs · Bases de données · Architecture logicielle",
+    "weeks": [{
+      "id": "w1",
+      "num": 1,
+      "title": "Semaine 1 — Python Avancé & Qualité de Code",
+      "days": [{
+        "d": "Lun",
+        "focus": "POO avancée: classes, héritage, composition, propriétés, méthodes spéciales (dunder methods)",
+        "tools": "Python 3.12+"
+      }, {
+        "d": "Mar",
+        "focus": "Programmation fonctionnelle: compréhensions, generators, decorators, closures, functools",
+        "tools": "Python"
+      }, {
+        "d": "Mer",
+        "focus": "Type hints & typage statique: typing module, Protocol, Generic, mypy en mode strict",
+        "tools": "mypy"
+      }, {
+        "d": "Jeu",
+        "focus": "Gestion d'erreurs robuste: exceptions custom, context managers (with), retry logic",
+        "tools": "Python"
+      }, {
+        "d": "Ven",
+        "focus": "Git avancé: rebase interactif, cherry-pick, résolution de conflits, git workflow en équipe",
+        "tools": "Git, GitHub"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: CLI tool orienté objet",
+        "tools": "Python"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + README + push GitHub",
+        "tools": "GitHub"
+      }],
+      "mini": {
+        "emoji": "🧰",
+        "title": "CLI de Gestion de Tâches (Task Manager)",
+        "desc": "Outil en ligne de commande orienté objet pour gérer des tâches: ajout, suppression, priorités, persistance en JSON. Architecture propre avec classes, type hints complets, gestion d'erreurs robuste. Tests unitaires de base.",
+        "tags": ["POO", "CLI", "Type Hints", "Git"]
+      }
+    }, {
+      "id": "w2",
+      "num": 2,
+      "title": "Semaine 2 — Tests, Packaging & Outils Pro",
+      "days": [{
+        "d": "Lun",
+        "focus": "pytest avancé: fixtures, parametrize, markers, mocking avec unittest.mock",
+        "tools": "pytest"
+      }, {
+        "d": "Mar",
+        "focus": "Structure de projet pro: pyproject.toml, uv/Poetry, gestion des dépendances, environnements virtuels",
+        "tools": "uv, Poetry"
+      }, {
+        "d": "Mer",
+        "focus": "Qualité de code: ruff (lint+format), mypy en CI, pre-commit hooks",
+        "tools": "ruff, pre-commit"
+      }, {
+        "d": "Jeu",
+        "focus": "Logging professionnel: structlog, niveaux de logs, formatters, logs structurés JSON",
+        "tools": "logging, structlog"
+      }, {
+        "d": "Ven",
+        "focus": "Documentation: docstrings (Google/NumPy style), Sphinx, génération auto de docs",
+        "tools": "Sphinx"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: package Python publiable + suite de tests complète",
+        "tools": "pytest"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + couverture de tests >80% + publication test sur TestPyPI",
+        "tools": "TestPyPI"
+      }],
+      "mini": {
+        "emoji": "📦",
+        "title": "Package Python Testé & Publié",
+        "desc": "Créer un package Python utilitaire (ex: validateur de données), avec suite de tests pytest complète (>80% coverage), linting propre, documentation Sphinx, et publication sur TestPyPI.",
+        "tags": ["pytest", "Packaging", "CI", "Documentation"]
+      }
+    }, {
+      "id": "w3",
+      "num": 3,
+      "title": "Semaine 3 — Bases de Données & APIs",
+      "days": [{
+        "d": "Lun",
+        "focus": "SQL avancé: jointures complexes, sous-requêtes, index, optimisation de requêtes",
+        "tools": "PostgreSQL"
+      }, {
+        "d": "Mar",
+        "focus": "SQLAlchemy ORM: modèles, relations, migrations avec Alembic",
+        "tools": "SQLAlchemy, Alembic"
+      }, {
+        "d": "Mer",
+        "focus": "FastAPI fondamentaux: routing, Pydantic, dependency injection, endpoints async",
+        "tools": "FastAPI"
+      }, {
+        "d": "Jeu",
+        "focus": "Authentification & sécurité API: JWT, OAuth2, hashing de mots de passe, rate limiting",
+        "tools": "FastAPI, JWT"
+      }, {
+        "d": "Ven",
+        "focus": "Tests d'API: TestClient, tests d'intégration avec base de données de test",
+        "tools": "pytest, FastAPI"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: API REST CRUD complète avec auth",
+        "tools": "FastAPI"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + documentation Swagger + conteneurisation locale",
+        "tools": "Docker"
+      }],
+      "mini": {
+        "emoji": "🔐",
+        "title": "API REST CRUD avec Authentification",
+        "desc": "API complète de gestion d'utilisateurs/ressources (FastAPI + PostgreSQL + SQLAlchemy). Authentification JWT, endpoints CRUD sécurisés, tests d'intégration, documentation Swagger auto-générée.",
+        "tags": ["FastAPI", "SQLAlchemy", "JWT", "PostgreSQL"]
+      }
+    }, {
+      "id": "w4",
+      "num": 4,
+      "title": "Semaine 4 — Structures de Données, Algorithmes & Architecture",
+      "days": [{
+        "d": "Lun",
+        "focus": "Complexité algorithmique: Big-O, analyse de complexité temporelle/spatiale",
+        "tools": "Python"
+      }, {
+        "d": "Mar",
+        "focus": "Structures de données: piles, files, listes chaînées, arbres binaires, tables de hachage",
+        "tools": "Python"
+      }, {
+        "d": "Mer",
+        "focus": "Design patterns: Factory, Singleton, Strategy, Observer — quand et pourquoi les utiliser",
+        "tools": "Python"
+      }, {
+        "d": "Jeu",
+        "focus": "Clean Code & SOLID: principes de conception, refactoring, code smells",
+        "tools": "Python"
+      }, {
+        "d": "Ven",
+        "focus": "Docker pour applications Python: Dockerfile multi-stage, docker-compose, bonnes pratiques",
+        "tools": "Docker"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage projet complet Stage 1 — architecture & conception",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation projet complet + CI basique GitHub Actions + push",
+        "tools": "GitHub Actions"
+      }],
+      "mini": {
+        "emoji": "🏗",
+        "title": "Refactoring & Design Patterns",
+        "desc": "Reprendre un projet précédent (Task Manager ou API CRUD) et le refactoriser en appliquant les principes SOLID et au moins 2 design patterns. Mesurer l'amélioration de la maintenabilité.",
+        "tags": ["Design Patterns", "SOLID", "Refactoring", "Clean Code"]
+      }
+    }],
+    "full": {
+      "title": "API de Gestion Professionnelle — Backend Python Complet",
+      "desc": "Service backend complet et déployable: API FastAPI (CRUD + auth JWT) connectée à PostgreSQL via SQLAlchemy, architecture en couches (routes/services/repositories), tests pytest (>75% coverage), conteneurisé avec Docker, CI GitHub Actions (lint+test+build). C'est ta preuve que tu es un développeur Python professionnel, pas juste un débutant.",
+      "deliverables": ["Code source structuré (architecture en couches) sur GitHub", "API fonctionnelle avec authentification JWT", "Suite de tests avec >75% de couverture", "Image Docker fonctionnelle + docker-compose", "Pipeline CI GitHub Actions (lint, test, build)", "README professionnel avec instructions d'installation"],
+      "stack": "Python · FastAPI · SQLAlchemy · PostgreSQL · Docker · pytest · GitHub Actions",
+      "duration": "4-5 jours (fin semaine 4)"
+    }
+  }, {
+    "id": 2,
+    "icon": "🧠",
+    "title": "Étape 2",
+    "subtitle": "AI Engineer Junior",
+    "color": "#2563eb",
+    "light": "#eff6ff",
+    "border": "#bfdbfe",
+    "duration": "2 mois",
+    "goal": "Maths ML · Scikit-learn · PyTorch · Transformers · LLMs & RAG",
+    "weeks": [{
+      "id": "w5",
+      "num": 5,
+      "title": "Semaine 5 — Mathématiques pour le ML",
+      "days": [{
+        "d": "Lun",
+        "focus": "Algèbre linéaire: vecteurs, matrices, produit matriciel, transposée avec NumPy",
+        "tools": "NumPy"
+      }, {
+        "d": "Mar",
+        "focus": "Décompositions: SVD, valeurs propres/vecteurs — implémentation NumPy",
+        "tools": "NumPy, SciPy"
+      }, {
+        "d": "Mer",
+        "focus": "Statistiques: distributions, variance, corrélation, tests statistiques (t-test, chi²)",
+        "tools": "SciPy, NumPy"
+      }, {
+        "d": "Jeu",
+        "focus": "Calcul différentiel: dérivées partielles, gradient, descente de gradient codée",
+        "tools": "NumPy + math"
+      }, {
+        "d": "Ven",
+        "focus": "Probabilités: Bayes, MLE, distributions (Normale, Bernoulli, Poisson)",
+        "tools": "SciPy, NumPy"
+      }, {
+        "d": "Sam",
+        "focus": "Implémentation descente de gradient from scratch sur régression linéaire",
+        "tools": "NumPy"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation mini-projet + notebook bien commenté/documenté",
+        "tools": "Jupyter"
+      }],
+      "mini": {
+        "emoji": "📐",
+        "title": "PCA from Scratch avec NumPy",
+        "desc": "Implémenter la PCA uniquement avec NumPy (zéro Scikit-learn). Appliquer sur MNIST ou Iris. Visualiser les composantes en 2D. Comparer avec sklearn.decomposition.PCA.",
+        "tags": ["NumPy", "Algèbre linéaire", "PCA", "Visualisation"]
+      }
+    }, {
+      "id": "w6",
+      "num": 6,
+      "title": "Semaine 6 — ML Classique (Partie 1)",
+      "days": [{
+        "d": "Lun",
+        "focus": "Régression linéaire: OLS, gradient descent, métriques RMSE/MAE/R²",
+        "tools": "Scikit-learn"
+      }, {
+        "d": "Mar",
+        "focus": "Régression logistique: sigmoïde, cross-entropy, multi-classe (OneVsRest)",
+        "tools": "Scikit-learn"
+      }, {
+        "d": "Mer",
+        "focus": "Decision Tree & Random Forest: critères split, feature importance, bagging",
+        "tools": "Scikit-learn"
+      }, {
+        "d": "Jeu",
+        "focus": "SVM & KNN: kernel trick, hyperplan de séparation, distance metrics",
+        "tools": "Scikit-learn"
+      }, {
+        "d": "Ven",
+        "focus": "Validation: train/test split, k-fold CV, learning curves, bias-variance tradeoff",
+        "tools": "Scikit-learn"
+      }, {
+        "d": "Sam",
+        "focus": "Feature engineering: encodage catégoriel (OHE, Target Encoding), normalisation, imputation",
+        "tools": "Sklearn, Pandas"
+      }, {
+        "d": "Dim",
+        "focus": "Mini-projet: pipeline Scikit-learn complet + GridSearchCV",
+        "tools": "Scikit-learn"
+      }],
+      "mini": {
+        "emoji": "📊",
+        "title": "Prédiction de Churn Client",
+        "desc": "Classifieur sur Telco Churn Dataset (Kaggle). Tester RF, LogReg, SVM. GridSearchCV pour tuning. Métriques: F1-Score, ROC-AUC, confusion matrix. Rapport comparatif.",
+        "tags": ["Scikit-learn", "GridSearchCV", "F1-Score", "ROC-AUC"]
+      }
+    }, {
+      "id": "w7",
+      "num": 7,
+      "title": "Semaine 7 — Boosting, Clustering & Pipeline Pro",
+      "days": [{
+        "d": "Lun",
+        "focus": "XGBoost & LightGBM: gradient boosting, DART, feature importance SHAP",
+        "tools": "XGBoost, LightGBM"
+      }, {
+        "d": "Mar",
+        "focus": "Clustering: K-Means (elbow method), DBSCAN, silhouette score, t-SNE viz",
+        "tools": "Scikit-learn"
+      }, {
+        "d": "Mer",
+        "focus": "Optuna: bayesian optimization, hyperparameter tuning automatisé",
+        "tools": "Optuna"
+      }, {
+        "d": "Jeu",
+        "focus": "Scikit-learn Pipeline: ColumnTransformer, custom transformers, chaining steps",
+        "tools": "Scikit-learn"
+      }, {
+        "d": "Ven",
+        "focus": "Model persistence: joblib. MLflow basics: tracking experiments, logging métriques",
+        "tools": "MLflow, joblib"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage projet complet — architecture & EDA",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation projet complet + README professionnel + push GitHub",
+        "tools": "GitHub"
+      }],
+      "mini": {
+        "emoji": "🏠",
+        "title": "House Prices Kaggle Competition",
+        "desc": "Compétition Kaggle House Prices: feature engineering avancé, XGBoost + LightGBM, Optuna pour tuning, pipeline Scikit-learn complet, tracking MLflow, soumission sur Kaggle.",
+        "tags": ["XGBoost", "LightGBM", "Optuna", "MLflow", "Kaggle"]
+      }
+    }, {
+      "id": "w8",
+      "num": 8,
+      "title": "Semaine 8 — Deep Learning avec PyTorch",
+      "days": [{
+        "d": "Lun",
+        "focus": "PyTorch: Tensors, opérations GPU/CPU, autograd, computational graph",
+        "tools": "PyTorch"
+      }, {
+        "d": "Mar",
+        "focus": "MLP: couches Linear, fonctions d'activation (ReLU, Sigmoid, Tanh, GELU)",
+        "tools": "PyTorch"
+      }, {
+        "d": "Mer",
+        "focus": "Loss functions (CrossEntropy, MSE, BCE), Optimizers (SGD, Adam, AdamW)",
+        "tools": "PyTorch"
+      }, {
+        "d": "Jeu",
+        "focus": "Training loop: forward/backward pass, gradient clipping, LR schedulers",
+        "tools": "PyTorch"
+      }, {
+        "d": "Ven",
+        "focus": "Dataset & DataLoader PyTorch, Dropout, BatchNorm, L2 regularisation",
+        "tools": "PyTorch"
+      }, {
+        "d": "Sam",
+        "focus": "TensorBoard / W&B pour visualiser training, debugging loss explosion",
+        "tools": "TensorBoard, W&B"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation mini-projet + analyse des erreurs + push GitHub",
+        "tools": "GitHub"
+      }],
+      "mini": {
+        "emoji": "🔢",
+        "title": "Classifieur MNIST from Scratch",
+        "desc": "MLP PyTorch sur MNIST. Target: >97% accuracy. Visualiser courbes loss/accuracy, comparer 3 architectures différentes, afficher les prédictions incorrectes. TensorBoard logs.",
+        "tags": ["PyTorch", "MLP", "MNIST", "TensorBoard"]
+      }
+    }, {
+      "id": "w9",
+      "num": 9,
+      "title": "Semaine 9 — CNNs & Computer Vision",
+      "days": [{
+        "d": "Lun",
+        "focus": "CNNs: convolutions, pooling, feature maps, stride, padding, receptive field",
+        "tools": "PyTorch"
+      }, {
+        "d": "Mar",
+        "focus": "Architectures: LeNet → ResNet (skip connections) → EfficientNet — intuition & code",
+        "tools": "PyTorch, torchvision"
+      }, {
+        "d": "Mer",
+        "focus": "Transfer Learning: feature extraction vs full fine-tuning, quand utiliser quoi",
+        "tools": "torchvision"
+      }, {
+        "d": "Jeu",
+        "focus": "Data augmentation: RandomCrop, Flip, ColorJitter, MixUp, albumentations",
+        "tools": "torchvision, albumentations"
+      }, {
+        "d": "Ven",
+        "focus": "Mixed precision training (fp16), learning rate finder, PyTorch Lightning intro",
+        "tools": "PyTorch Lightning"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet CNN + setup Gradio pour démo",
+        "tools": "Gradio"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + déploiement Gradio + analyse des erreurs du modèle",
+        "tools": "Gradio"
+      }],
+      "mini": {
+        "emoji": "🐱",
+        "title": "Chats vs Chiens (Transfer Learning)",
+        "desc": "EfficientNet pré-entraîné sur dataset Kaggle Chats/Chiens. Feature extraction puis full fine-tuning. Data augmentation complète. Comparer les 2 approches. Interface démo Gradio.",
+        "tags": ["CNN", "Transfer Learning", "EfficientNet", "Gradio"]
+      }
+    }, {
+      "id": "w10",
+      "num": 10,
+      "title": "Semaine 10 — NLP & Architecture Transformer",
+      "days": [{
+        "d": "Lun",
+        "focus": "NLP basics: tokenisation, embeddings, Word2Vec, GloVe — intuition & implémentation",
+        "tools": "Gensim, NLTK"
+      }, {
+        "d": "Mar",
+        "focus": "Attention mechanism: scaled dot-product, self-attention — coder from scratch PyTorch",
+        "tools": "PyTorch"
+      }, {
+        "d": "Mer",
+        "focus": "Architecture Transformer complète: multi-head attention, FFN, positional encoding",
+        "tools": "Paper + PyTorch"
+      }, {
+        "d": "Jeu",
+        "focus": "Hugging Face 🤗: AutoModel, AutoTokenizer, pipeline(), datasets, hub",
+        "tools": "Hugging Face"
+      }, {
+        "d": "Ven",
+        "focus": "Fine-tuning avec Trainer API: TrainingArguments, compute_metrics, callbacks",
+        "tools": "HF Trainer"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet BERT + push modèle sur HuggingFace Hub",
+        "tools": "HF Hub"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + évaluation complète + README du modèle sur HF Hub",
+        "tools": "HF Hub"
+      }],
+      "mini": {
+        "emoji": "💬",
+        "title": "Analyse de Sentiment BERT (IMDB)",
+        "desc": "Fine-tuner bert-base-uncased sur IMDB avec HF Trainer. Baseline: TF-IDF + LogReg. Comparer performances. Publier le modèle fine-tuné sur HuggingFace Hub avec model card.",
+        "tags": ["BERT", "Hugging Face", "HF Hub", "Sentiment Analysis"]
+      }
+    }, {
+      "id": "w11",
+      "num": 11,
+      "title": "Semaine 11 — LLMs, Prompt Engineering & RAG",
+      "days": [{
+        "d": "Lun",
+        "focus": "LLM APIs: OpenAI GPT, Anthropic Claude, Gemini — usage, pricing, bonnes pratiques",
+        "tools": "OpenAI, Anthropic API"
+      }, {
+        "d": "Mar",
+        "focus": "Prompt Engineering: zero-shot, few-shot, chain-of-thought, system prompts, templates",
+        "tools": "Python + API"
+      }, {
+        "d": "Mer",
+        "focus": "LangChain: LCEL, chains, prompt templates, output parsers, conversation memory",
+        "tools": "LangChain"
+      }, {
+        "d": "Jeu",
+        "focus": "RAG: embeddings, chunking strategies, vector stores (FAISS, ChromaDB), retrieval",
+        "tools": "LangChain, ChromaDB"
+      }, {
+        "d": "Ven",
+        "focus": "LoRA & QLoRA: fine-tuning LLMs efficacement, PEFT library, bitsandbytes",
+        "tools": "HuggingFace PEFT"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet RAG + interface Streamlit",
+        "tools": "Streamlit"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + déploiement HuggingFace Spaces (gratuit)",
+        "tools": "HF Spaces"
+      }],
+      "mini": {
+        "emoji": "📚",
+        "title": "Chatbot RAG sur PDF",
+        "desc": "Chatbot qui répond aux questions sur un document PDF. LangChain + ChromaDB + LLM API. Interface Streamlit avec historique de chat et sources citées. Déployé sur HF Spaces.",
+        "tags": ["RAG", "LangChain", "ChromaDB", "Streamlit", "HF Spaces"]
+      }
+    }, {
+      "id": "w12",
+      "num": 12,
+      "title": "Semaine 12 — Consolidation & Candidature Junior",
+      "days": [{
+        "d": "Lun",
+        "focus": "Révision active: relire/refactoriser tes mini-projets, identifier les lacunes",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "CV ATS-friendly: compétences ML/AI, projets quantifiés, mots-clés recruteurs",
+        "tools": "Canva/LaTeX"
+      }, {
+        "d": "Mer",
+        "focus": "LinkedIn & GitHub Profile: README de profil, épingler les meilleurs repos",
+        "tools": "LinkedIn, GitHub"
+      }, {
+        "d": "Jeu",
+        "focus": "Entretiens techniques ML: 30 questions théoriques (overfitting, métriques, biais-variance)",
+        "tools": "Notion/Anki"
+      }, {
+        "d": "Ven",
+        "focus": "Coding interviews: bases LeetCode (arrays, hashmaps) — 5 exercices",
+        "tools": "LeetCode"
+      }, {
+        "d": "Sam",
+        "focus": "Finalisation portfolio + sélection des meilleurs projets à présenter",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Candidatures: postuler à 10 offres Junior AI Engineer ciblées",
+        "tools": "LinkedIn Jobs"
+      }],
+      "mini": {
+        "emoji": "🎯",
+        "title": "Portfolio & Sprint de Candidature",
+        "desc": "Consolider les projets de cette étape en un portfolio cohérent (GitHub + README de profil). CV optimisé ATS. 10 candidatures envoyées à des postes Junior AI Engineer remote.",
+        "tags": ["Portfolio", "CV", "LinkedIn", "Candidatures"]
+      }
+    }],
+    "full": {
+      "title": "Assistant IA Multi-Documents — Application RAG Complète",
+      "desc": "Application web: upload multi-PDF + Q&A conversationnel avec historique. Backend: LangChain + ChromaDB + LLM API. Interface: Streamlit ou Gradio. Features: historique de chat, citations des sources, résumé automatique. Déployé en ligne sur HuggingFace Spaces (100% gratuit).",
+      "deliverables": ["App déployée accessible en ligne (URL publique)", "Backend RAG robuste avec gestion multi-documents", "Interface UI propre avec historique", "README avec architecture diagram", "Demo vidéo 1-2 min"],
+      "stack": "LangChain · ChromaDB · OpenAI/Claude API · Streamlit · HuggingFace Spaces",
+      "duration": "4-5 jours (fin semaine 12)"
+    }
+  }, {
+    "id": 3,
+    "icon": "🚀",
+    "title": "Étape 3",
+    "subtitle": "Senior AI Engineer",
+    "color": "#7c3aed",
+    "light": "#f5f3ff",
+    "border": "#ddd6fe",
+    "duration": "3 mois",
+    "goal": "LLMOps · Architecture IA · Sécurité · Scalabilité · Leadership Technique",
+    "weeks": [{
+      "id": "w13",
+      "num": 13,
+      "title": "Semaine 13 — API de Production & MLOps Fondamentaux",
+      "days": [{
+        "d": "Lun",
+        "focus": "FastAPI: routing, async endpoints, dependency injection, middleware",
+        "tools": "FastAPI"
+      }, {
+        "d": "Mar",
+        "focus": "Pydantic v2: validation de données, schemas, validators, response models",
+        "tools": "Pydantic"
+      }, {
+        "d": "Mer",
+        "focus": "Docker: Dockerfile, layers, multi-stage builds, docker-compose pour ML apps",
+        "tools": "Docker"
+      }, {
+        "d": "Jeu",
+        "focus": "MLflow avancé: Model Registry, staging/production, serving avec mlflow server",
+        "tools": "MLflow"
+      }, {
+        "d": "Ven",
+        "focus": "Tests pour ML: pytest, tests unitaires, tests API avec TestClient, mocking",
+        "tools": "pytest"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet FastAPI + Docker + documentation Swagger",
+        "tools": "FastAPI"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + tests passants + push GitHub avec CI basique",
+        "tools": "GitHub Actions"
+      }],
+      "mini": {
+        "emoji": "⚡",
+        "title": "ML API avec FastAPI + Docker",
+        "desc": "Wrapper le modèle fraude bancaire (Étape 2) dans une API FastAPI. Endpoints: /predict, /batch_predict, /health. Dockeriser. Tests pytest. Documentation Swagger auto-générée.",
+        "tags": ["FastAPI", "Docker", "pytest", "Swagger"]
+      }
+    }, {
+      "id": "w14",
+      "num": 14,
+      "title": "Semaine 14 — Cloud & CI/CD",
+      "days": [{
+        "d": "Lun",
+        "focus": "AWS basics: IAM, S3, EC2, ECR, VPC — console + CLI setup (ou GCP équivalents)",
+        "tools": "AWS CLI"
+      }, {
+        "d": "Mar",
+        "focus": "Déploiement: push image Docker → AWS ECR → run sur EC2 ou ECS/Fargate",
+        "tools": "AWS"
+      }, {
+        "d": "Mer",
+        "focus": "GitHub Actions: workflow CI (lint+test+build), workflow CD (deploy automatique)",
+        "tools": "GitHub Actions"
+      }, {
+        "d": "Jeu",
+        "focus": "Monitoring ML: Evidently AI (data drift, performance dégradation), alertes",
+        "tools": "Evidently AI"
+      }, {
+        "d": "Ven",
+        "focus": "Sécurité: .env, AWS Secrets Manager, HTTPS, validation des inputs API",
+        "tools": "AWS, Python"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet CI/CD complet — pipeline GitHub Actions",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + URL publique fonctionnelle + monitoring actif",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "☁️",
+        "title": "Pipeline CI/CD Complet sur AWS",
+        "desc": "GitHub Actions qui: 1) Lance tests pytest 2) Build image Docker 3) Push AWS ECR 4) Déploie sur EC2/ECS. API ML accessible via URL publique HTTPS avec monitoring Evidently.",
+        "tags": ["AWS", "GitHub Actions", "CI/CD", "Evidently AI"]
+      }
+    }, {
+      "id": "w15",
+      "num": 15,
+      "title": "Semaine 15 — AI Engineering Avancé: RAG, Agents, LangGraph",
+      "days": [{
+        "d": "Lun",
+        "focus": "RAG avancé: chunking sémantique, parent-child retrieval, HyDE, reranking Cohere",
+        "tools": "LlamaIndex, LangChain"
+      }, {
+        "d": "Mar",
+        "focus": "Vector DB avancées: Pinecone ou Weaviate — indexation, metadata filtering, hybrid search",
+        "tools": "Pinecone / Weaviate"
+      }, {
+        "d": "Mer",
+        "focus": "AI Agents: function calling (OpenAI), tool use (Anthropic), ReAct pattern",
+        "tools": "OpenAI, Anthropic"
+      }, {
+        "d": "Jeu",
+        "focus": "LangGraph: state machines d'agents, workflows conditionnels, multi-agents",
+        "tools": "LangGraph"
+      }, {
+        "d": "Ven",
+        "focus": "Évaluation LLMs: RAGAS (faithfulness, relevancy, context precision), benchmarks",
+        "tools": "RAGAS"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet AI Agent + évaluation RAGAS",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + rapport d'évaluation RAGAS + push GitHub",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🤖",
+        "title": "AI Research Agent avec LangGraph",
+        "desc": "Agent capable de: rechercher sur le web, lire des PDFs, effectuer des calculs, synthétiser une réponse structurée. LangGraph + OpenAI function calling. Évalué avec RAGAS.",
+        "tags": ["LangGraph", "AI Agent", "Function Calling", "RAGAS"]
+      }
+    }, {
+      "id": "w16",
+      "num": 16,
+      "title": "Semaine 16 — LLMOps: Fine-tuning, Serving & Observabilité",
+      "days": [{
+        "d": "Lun",
+        "focus": "LoRA & QLoRA en profondeur: rang, alpha, target modules, PEFT en production",
+        "tools": "HuggingFace PEFT"
+      }, {
+        "d": "Mar",
+        "focus": "Quantization: GPTQ, AWQ, GGUF — réduire la taille des modèles sans perdre en qualité",
+        "tools": "bitsandbytes"
+      }, {
+        "d": "Mer",
+        "focus": "Serving LLM à l'échelle: vLLM, Text Generation Inference (TGI), continuous batching",
+        "tools": "vLLM, TGI"
+      }, {
+        "d": "Jeu",
+        "focus": "Observabilité LLM: tracing des prompts, Langfuse/Arize Phoenix, détection de hallucinations",
+        "tools": "Langfuse"
+      }, {
+        "d": "Ven",
+        "focus": "Évaluation continue en prod: golden datasets, A/B testing de prompts, feedback loops",
+        "tools": "RAGAS"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: fine-tuning + serving + monitoring",
+        "tools": "vLLM"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + dashboard d'observabilité fonctionnel",
+        "tools": "Langfuse"
+      }],
+      "mini": {
+        "emoji": "🛰",
+        "title": "LLM Fine-tuné, Servi & Monitoré",
+        "desc": "Fine-tuner un LLM open-source avec QLoRA sur une tâche spécifique, le quantizer, le servir avec vLLM, et mettre en place un dashboard d'observabilité (Langfuse) pour tracer les prompts et détecter les dérives.",
+        "tags": ["QLoRA", "vLLM", "LLMOps", "Langfuse"]
+      }
+    }, {
+      "id": "w17",
+      "num": 17,
+      "title": "Semaine 17 — Architecture des Systèmes IA",
+      "days": [{
+        "d": "Lun",
+        "focus": "System design pour IA: trade-offs latence/throughput/coût, SLA/SLO",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Patterns d'architecture: microservices vs monolithe pour systèmes ML, event-driven",
+        "tools": "Kafka (intro)"
+      }, {
+        "d": "Mer",
+        "focus": "Caching intelligent: cache sémantique de réponses LLM, invalidation, Redis",
+        "tools": "Redis"
+      }, {
+        "d": "Jeu",
+        "focus": "Load balancing & autoscaling pour inférence: stratégies de scaling horizontal",
+        "tools": "Kubernetes (intro)"
+      }, {
+        "d": "Ven",
+        "focus": "Documentation d'architecture: diagrammes C4, Architecture Decision Records (ADR)",
+        "tools": "Mermaid, Excalidraw"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: cache sémantique + load balancer multi-instances",
+        "tools": "Redis"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + design doc d'architecture complet",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🏛",
+        "title": "Architecture Scalable pour Service LLM",
+        "desc": "Implémenter un cache sémantique de réponses (Redis + embeddings) devant un service LLM, avec load balancing entre plusieurs instances de modèle. Rédiger un design doc complet avec diagrammes d'architecture.",
+        "tags": ["Architecture", "Redis", "Scalabilité", "Design Doc"]
+      }
+    }, {
+      "id": "w18",
+      "num": 18,
+      "title": "Semaine 18 — Multi-modalité & Modèles Avancés",
+      "days": [{
+        "d": "Lun",
+        "focus": "Vision-Language Models: CLIP, LLaVA, GPT-4V/Claude Vision — cas d'usage",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Modèles audio/speech: Whisper (STT), TTS modernes, pipelines voix-vers-voix",
+        "tools": "Whisper"
+      }, {
+        "d": "Mer",
+        "focus": "Diffusion models: intuition (Stable Diffusion, DALL-E), génération d'images en pratique",
+        "tools": "Diffusers"
+      }, {
+        "d": "Jeu",
+        "focus": "Sélection de modèle: open-source vs propriétaire, benchmarks, coût/performance/latence",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Modèles spécialisés par domaine: fine-tuning vertical (juridique, médical, finance) — enjeux",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: assistant multi-modal (image + texte)",
+        "tools": "LLaVA/GPT-4V"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + démo interactive",
+        "tools": "Gradio"
+      }],
+      "mini": {
+        "emoji": "🖼",
+        "title": "Assistant Multi-Modal Image + Texte",
+        "desc": "Application capable d'analyser une image et de répondre à des questions à son sujet (LLaVA ou API vision). Interface de démo avec upload d'image et chat. Comparaison de 2 modèles vision-language.",
+        "tags": ["Multi-modal", "Vision-Language", "LLaVA", "Gradio"]
+      }
+    }, {
+      "id": "w19",
+      "num": 19,
+      "title": "Semaine 19 — Sécurité & IA Responsable",
+      "days": [{
+        "d": "Lun",
+        "focus": "Prompt injection & jailbreaks: techniques d'attaque, vecteurs de risque",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Guardrails: NeMo Guardrails, validation d'inputs/outputs, filtrage de contenu",
+        "tools": "NeMo Guardrails"
+      }, {
+        "d": "Mer",
+        "focus": "Protection des données: redaction de PII, anonymisation, gestion des secrets",
+        "tools": "Presidio"
+      }, {
+        "d": "Jeu",
+        "focus": "Biais & fairness: audits de biais dans les modèles, métriques d'équité",
+        "tools": "Fairlearn"
+      }, {
+        "d": "Ven",
+        "focus": "Conformité: bases du RGPD/AI Act appliquées à l'IA, documentation de conformité",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: audit de sécurité + garde-fous sur un système RAG",
+        "tools": "NeMo Guardrails"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + rapport d'audit de sécurité",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🛡",
+        "title": "Audit de Sécurité & Garde-fous",
+        "desc": "Tester un système RAG/agent existant contre prompt injection et fuites de données. Implémenter des guardrails (validation input/output, redaction PII). Rédiger un rapport d'audit avec recommandations.",
+        "tags": ["Sécurité IA", "Guardrails", "PII", "Audit"]
+      }
+    }, {
+      "id": "w20",
+      "num": 20,
+      "title": "Semaine 20 — Optimisation des Coûts & Scalabilité",
+      "days": [{
+        "d": "Lun",
+        "focus": "Token economics: comprendre et réduire le coût par requête (prompt, contexte, sortie)",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Caching & déduplication de requêtes, prompt compression",
+        "tools": ""
+      }, {
+        "d": "Mer",
+        "focus": "Distillation de modèles: utiliser un grand modèle pour entraîner un petit modèle spécialisé",
+        "tools": ""
+      }, {
+        "d": "Jeu",
+        "focus": "Batching & traitement asynchrone à grande échelle",
+        "tools": "asyncio"
+      }, {
+        "d": "Ven",
+        "focus": "FinOps pour l'IA: monitoring des coûts cloud/API, budgets, alertes de dépassement",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: réduction de coût mesurée sur un pipeline existant",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + rapport avant/après avec métriques de coût",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "💸",
+        "title": "Optimisation des Coûts d'un Pipeline IA",
+        "desc": "Reprendre le pipeline RAG/agent d'une semaine précédente et réduire son coût d'au moins 40% (caching, modèle plus petit, batching, compression de prompt) sans dégrader la qualité perçue. Rapport chiffré avant/après.",
+        "tags": ["FinOps", "Optimisation", "Caching", "Coût LLM"]
+      }
+    }, {
+      "id": "w21",
+      "num": 21,
+      "title": "Semaine 21 — Distributed Training & Infra GPU",
+      "days": [{
+        "d": "Lun",
+        "focus": "Bases du training distribué: data parallelism vs model parallelism",
+        "tools": "PyTorch DDP"
+      }, {
+        "d": "Mar",
+        "focus": "DeepSpeed & FSDP: sharding des paramètres, ZeRO optimizer states",
+        "tools": "DeepSpeed"
+      }, {
+        "d": "Mer",
+        "focus": "Gestion de clusters GPU: bases de Kubernetes pour ML, Kubeflow/Ray intro",
+        "tools": "Kubernetes, Ray"
+      }, {
+        "d": "Jeu",
+        "focus": "Mixed precision & gradient accumulation à grande échelle, profiling GPU",
+        "tools": "PyTorch Profiler"
+      }, {
+        "d": "Ven",
+        "focus": "Coûts & disponibilité GPU: spot instances, multi-cloud, alternatives (RunPod, Lambda)",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: fine-tuning multi-GPU (ou simulation gradient accumulation)",
+        "tools": "DeepSpeed"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + benchmark de speedup mesuré",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🖥",
+        "title": "Fine-tuning Distribué & Benchmark",
+        "desc": "Fine-tuner un modèle de taille moyenne avec DeepSpeed/FSDP (ou gradient accumulation si GPU limité), mesurer le speedup et l'utilisation mémoire par rapport à une approche single-GPU naïve.",
+        "tags": ["DeepSpeed", "Training Distribué", "GPU", "Benchmark"]
+      }
+    }, {
+      "id": "w22",
+      "num": 22,
+      "title": "Semaine 22 — Leadership Technique",
+      "days": [{
+        "d": "Lun",
+        "focus": "Revues de code efficaces: donner un feedback constructif, checklist de revue",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Design docs & RFC: structurer une proposition technique, obtenir un consensus",
+        "tools": ""
+      }, {
+        "d": "Mer",
+        "focus": "Mentoring: accompagner un développeur junior, pair programming, débogage guidé",
+        "tools": ""
+      }, {
+        "d": "Jeu",
+        "focus": "Communication avec stakeholders non-tech: vulgariser, gérer les attentes, roadmap produit IA",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Gestion de projet agile pour IA: incertitude des projets ML, sprints adaptés, définir le \"done\"",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: RFC + revue de code structurée",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + retour d'expérience écrit",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "📝",
+        "title": "RFC Technique & Revue de Code",
+        "desc": "Rédiger un RFC complet pour une nouvelle feature IA (problème, alternatives considérées, décision, risques). Faire une revue de code détaillée et constructive sur un projet open-source ou un de tes anciens projets.",
+        "tags": ["RFC", "Leadership", "Revue de Code", "Communication"]
+      }
+    }, {
+      "id": "w23",
+      "num": 23,
+      "title": "Semaine 23 — Système IA Complet en Production",
+      "days": [{
+        "d": "Lun",
+        "focus": "Conception: assembler agents + RAG avancé + sécurité + monitoring dans une architecture unique",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Implémentation: couche agents (LangGraph) + retrieval avancé",
+        "tools": "LangGraph"
+      }, {
+        "d": "Mer",
+        "focus": "Implémentation: guardrails de sécurité + observabilité (Langfuse)",
+        "tools": "Langfuse"
+      }, {
+        "d": "Jeu",
+        "focus": "Implémentation: cache sémantique + optimisation des coûts",
+        "tools": "Redis"
+      }, {
+        "d": "Ven",
+        "focus": "Déploiement: conteneurisation, CI/CD, déploiement cloud",
+        "tools": "Docker, GitHub Actions"
+      }, {
+        "d": "Sam",
+        "focus": "Tests de charge & validation end-to-end",
+        "tools": "Locust"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + documentation d'architecture complète",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🧩",
+        "title": "Système IA de Production Intégré",
+        "desc": "Semaine de build intensif: assembler dans un seul système tout ce qui a été appris (agents, RAG, sécurité, observabilité, optimisation de coût), déployé et testé en charge.",
+        "tags": ["Intégration", "Production", "Agents", "Observabilité"]
+      }
+    }, {
+      "id": "w24",
+      "num": 24,
+      "title": "Semaine 24 — Finalisation Senior & Préparation Entretiens",
+      "days": [{
+        "d": "Lun",
+        "focus": "System design interviews: méthodologie, exemples concrets (design un système RAG à l'échelle)",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Behavioral interviews: leadership, gestion de conflits, méthode STAR",
+        "tools": ""
+      }, {
+        "d": "Mer",
+        "focus": "Portfolio Senior: mettre en avant l'architecture, les décisions techniques, l'impact",
+        "tools": ""
+      }, {
+        "d": "Jeu",
+        "focus": "Négociation salariale: benchmarks de marché, stratégies de négociation",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Mock interviews: 2 simulations complètes (technique + system design) avec feedback",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Finalisation portfolio Senior + projet phare Étape 3",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Candidatures: postuler à des postes Senior AI Engineer ciblés",
+        "tools": "LinkedIn Jobs"
+      }],
+      "mini": {
+        "emoji": "🎓",
+        "title": "Préparation Entretiens Senior AI Engineer",
+        "desc": "3 mock interviews (technique, system design, behavioral) avec feedback structuré. Portfolio finalisé mettant en avant les décisions d'architecture. Candidatures envoyées à des postes Senior.",
+        "tags": ["Entretiens", "System Design", "Négociation", "Portfolio"]
+      }
+    }],
+    "full": {
+      "title": "Plateforme IA Multi-Agents Sécurisée & Scalable en Production",
+      "desc": "Plateforme complète de niveau senior: agents LangGraph orchestrant du RAG avancé (reranking, hybrid search), sécurisée par des guardrails, observée en continu (Langfuse), optimisée en coût (caching sémantique), déployée sur le cloud avec CI/CD et capable de scaler horizontalement. Document d'architecture complet avec diagrammes C4 et ADRs — ton projet vedette pour des entretiens Senior.",
+      "deliverables": ["Architecture documentée (diagrammes C4 + ADRs)", "Système d'agents + RAG avancé fonctionnel", "Guardrails de sécurité actifs et testés", "Dashboard d'observabilité (Langfuse) en place", "Optimisation de coût mesurée et documentée", "Déploiement cloud avec CI/CD opérationnel", "Démo vidéo 5 min expliquant les choix d'architecture"],
+      "stack": "LangGraph · vLLM · Redis · Langfuse · NeMo Guardrails · Kubernetes (bases) · AWS/GCP",
+      "duration": "7-10 jours (fin semaine 24)"
+    }
+  }, {
+    "id": 4,
+    "icon": "⚙️",
+    "title": "Étape 4",
+    "subtitle": "ML Engineer",
+    "color": "#059669",
+    "light": "#ecfdf5",
+    "border": "#a7f3d0",
+    "duration": "2 mois",
+    "goal": "Data Pipelines · Feature Stores · Model Serving · A/B Testing · ML Temps Réel",
+    "weeks": [{
+      "id": "w25",
+      "num": 25,
+      "title": "Semaine 25 — Pipelines de Données à Grande Échelle",
+      "days": [{
+        "d": "Lun",
+        "focus": "Apache Spark / PySpark: RDDs, DataFrames distribués, transformations vs actions",
+        "tools": "PySpark"
+      }, {
+        "d": "Mar",
+        "focus": "Optimisation Spark: partitioning, broadcast joins, gestion de la mémoire",
+        "tools": "PySpark"
+      }, {
+        "d": "Mer",
+        "focus": "Orchestration: Apache Airflow — DAGs, scheduling, retries, sensors",
+        "tools": "Airflow"
+      }, {
+        "d": "Jeu",
+        "focus": "Qualité des données à l'échelle: validation automatisée, détection d'anomalies",
+        "tools": "Great Expectations"
+      }, {
+        "d": "Ven",
+        "focus": "Data lakes & formats: Parquet, Delta Lake, partitionnement de stockage",
+        "tools": "Delta Lake"
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: pipeline Spark orchestré par Airflow",
+        "tools": "PySpark, Airflow"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + validation de données automatisée",
+        "tools": "Great Expectations"
+      }],
+      "mini": {
+        "emoji": "🗄",
+        "title": "Pipeline de Données Distribué Orchestré",
+        "desc": "Pipeline de traitement de données à grande échelle avec PySpark (nettoyage, agrégations, jointures), orchestré par Airflow avec retries et monitoring, avec validation automatisée de la qualité des données.",
+        "tags": ["PySpark", "Airflow", "Data Quality", "Delta Lake"]
+      }
+    }, {
+      "id": "w26",
+      "num": 26,
+      "title": "Semaine 26 — Feature Stores & Feature Engineering à l'Échelle",
+      "days": [{
+        "d": "Lun",
+        "focus": "Concepts de Feature Store: pourquoi, point-in-time correctness, online vs offline store",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Feast: définir des features, materialization, serving de features en temps réel",
+        "tools": "Feast"
+      }, {
+        "d": "Mer",
+        "focus": "Feature engineering avancé à l'échelle: agrégations temporelles, fenêtres glissantes",
+        "tools": "PySpark"
+      }, {
+        "d": "Jeu",
+        "focus": "Versioning de features & data lineage: traçabilité des données",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Tests de features: détection de data leakage, validation de schéma",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: feature store pour un cas de scoring",
+        "tools": "Feast"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + serving de features en temps réel testé",
+        "tools": "Feast"
+      }],
+      "mini": {
+        "emoji": "🧮",
+        "title": "Feature Store pour Scoring en Temps Réel",
+        "desc": "Mettre en place un feature store (Feast) pour un cas d'usage de scoring (ex: risque crédit), avec features online et offline, point-in-time correctness, et un endpoint de serving en temps réel.",
+        "tags": ["Feast", "Feature Store", "Real-time", "Data Lineage"]
+      }
+    }, {
+      "id": "w27",
+      "num": 27,
+      "title": "Semaine 27 — Model Serving à l'Échelle",
+      "days": [{
+        "d": "Lun",
+        "focus": "Stratégies de serving: batch vs real-time vs streaming inference",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Triton Inference Server / TorchServe: déploiement de modèles optimisés",
+        "tools": "Triton, TorchServe"
+      }, {
+        "d": "Mer",
+        "focus": "Optimisation d'inférence: ONNX, quantization, batching dynamique",
+        "tools": "ONNX"
+      }, {
+        "d": "Jeu",
+        "focus": "Shadow deployment & canary releases pour modèles ML",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Monitoring de latence: p50/p95/p99, profiling, goulots d'étranglement",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: serving haute performance avec benchmark de latence",
+        "tools": "Triton"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + rapport de benchmark (latence, throughput)",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🚄",
+        "title": "Service de Serving Haute Performance",
+        "desc": "Déployer un modèle ML via Triton Inference Server ou TorchServe, optimisé avec ONNX et quantization. Benchmark complet de latence (p50/p95/p99) et throughput sous charge.",
+        "tags": ["Triton", "ONNX", "Latence", "Benchmark"]
+      }
+    }, {
+      "id": "w28",
+      "num": 28,
+      "title": "Semaine 28 — A/B Testing & Expérimentation",
+      "days": [{
+        "d": "Lun",
+        "focus": "Design d'expériences: hypothèses, métriques primaires/secondaires, taille d'échantillon",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Tests statistiques: t-test, tests séquentiels, intervalles de confiance, p-hacking",
+        "tools": "SciPy"
+      }, {
+        "d": "Mer",
+        "focus": "Plateformes d'expérimentation: assignation, randomisation, guardrail metrics",
+        "tools": ""
+      }, {
+        "d": "Jeu",
+        "focus": "Métriques business vs métriques ML: aligner accuracy/F1 avec impact business réel",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Pièges courants: paradoxe de Simpson, novelty effect, interaction entre expériences",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: système d'A/B testing simulé de bout en bout",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + analyse statistique complète des résultats",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🧪",
+        "title": "Système d'A/B Testing pour Modèle ML",
+        "desc": "Concevoir et simuler une expérience A/B complète comparant deux versions d'un modèle ML: assignation aléatoire, collecte de métriques, analyse statistique rigoureuse, et recommandation finale.",
+        "tags": ["A/B Testing", "Statistiques", "Expérimentation", "Décision Data-Driven"]
+      }
+    }, {
+      "id": "w29",
+      "num": 29,
+      "title": "Semaine 29 — Systèmes de Recommandation",
+      "days": [{
+        "d": "Lun",
+        "focus": "Collaborative filtering: matrix factorization, ALS, similarité utilisateur/item",
+        "tools": "implicit, Surprise"
+      }, {
+        "d": "Mar",
+        "focus": "Recommandation basée contenu & embeddings: similarité sémantique, two-tower models",
+        "tools": ""
+      }, {
+        "d": "Mer",
+        "focus": "Ranking models: learning-to-rank, métriques (NDCG, MAP, Recall@K)",
+        "tools": "LightGBM Ranker"
+      }, {
+        "d": "Jeu",
+        "focus": "Cold-start problem: stratégies pour nouveaux utilisateurs/items",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Architecture de recommandation à l'échelle: candidate generation + ranking (type Netflix/Spotify)",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: système de recommandation end-to-end",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + évaluation offline (NDCG, Recall@K)",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🎬",
+        "title": "Système de Recommandation End-to-End",
+        "desc": "Système de recommandation (films, produits ou musique) en deux étages: candidate generation (collaborative filtering) puis ranking (learning-to-rank). Évaluation offline avec NDCG et Recall@K.",
+        "tags": ["Recommandation", "Collaborative Filtering", "Ranking", "NDCG"]
+      }
+    }, {
+      "id": "w30",
+      "num": 30,
+      "title": "Semaine 30 — ML en Temps Réel & Streaming",
+      "days": [{
+        "d": "Lun",
+        "focus": "Apache Kafka: topics, producers/consumers, partitions, bases du streaming",
+        "tools": "Kafka"
+      }, {
+        "d": "Mar",
+        "focus": "Feature engineering en streaming: agrégations sur fenêtres temporelles",
+        "tools": "Kafka Streams / Flink"
+      }, {
+        "d": "Mer",
+        "focus": "Online learning: mise à jour incrémentale de modèles, concept drift",
+        "tools": "River"
+      }, {
+        "d": "Jeu",
+        "focus": "Cas d'usage temps réel: détection de fraude streaming, alerting instantané",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Architecture Lambda/Kappa pour systèmes ML temps réel",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: pipeline ML temps réel avec Kafka",
+        "tools": "Kafka"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + démonstration de détection en quasi temps réel",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "⚡",
+        "title": "Détection de Fraude en Temps Réel",
+        "desc": "Pipeline de scoring de transactions en streaming avec Kafka: ingestion des transactions, feature engineering en fenêtre glissante, scoring en quasi temps réel, alerting sur transactions suspectes.",
+        "tags": ["Kafka", "Streaming", "Temps Réel", "Fraud Detection"]
+      }
+    }, {
+      "id": "w31",
+      "num": 31,
+      "title": "Semaine 31 — Observabilité & Fiabilité ML",
+      "days": [{
+        "d": "Lun",
+        "focus": "Data drift avancé: tests statistiques de drift (KS, PSI), seuils d'alerte",
+        "tools": "Evidently AI"
+      }, {
+        "d": "Mar",
+        "focus": "Concept drift & model decay: détection de dégradation de performance en prod",
+        "tools": ""
+      }, {
+        "d": "Mer",
+        "focus": "Retraining automatisé: pipelines de réentraînement déclenchés, validation avant déploiement",
+        "tools": "Airflow"
+      }, {
+        "d": "Jeu",
+        "focus": "SLOs pour systèmes ML: définir et mesurer la fiabilité d'un système ML en prod",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Incident response: post-mortems, runbooks pour incidents ML spécifiques",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Démarrage mini-projet: dashboard d'observabilité complet",
+        "tools": "Evidently AI"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation + pipeline de retraining automatisé fonctionnel",
+        "tools": "Airflow"
+      }],
+      "mini": {
+        "emoji": "📡",
+        "title": "Dashboard d'Observabilité & Retraining Auto",
+        "desc": "Dashboard de monitoring complet (drift de données, dégradation de performance, alertes) pour un modèle en production, couplé à un pipeline de retraining automatisé déclenché par seuils.",
+        "tags": ["Evidently AI", "Drift Detection", "Retraining", "SLO"]
+      }
+    }, {
+      "id": "w32",
+      "num": 32,
+      "title": "Semaine 32 — Préparation Entretiens ML Engineer",
+      "days": [{
+        "d": "Lun",
+        "focus": "ML system design interviews: méthodologie (design un système de recommandation/fraude à l'échelle)",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Coding ML: implémenter des algorithmes from scratch (k-means, gradient boosting simplifié)",
+        "tools": ""
+      }, {
+        "d": "Mer",
+        "focus": "Questions théoriques avancées: trade-offs biais-variance à l'échelle, régularisation, ensembling",
+        "tools": ""
+      }, {
+        "d": "Jeu",
+        "focus": "Revue de portfolio ML Engineer: mettre en avant l'impact business des projets",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Mock interviews: 2 simulations system design ML avec feedback",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Finalisation portfolio + projet phare Étape 4",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Candidatures: postuler à des postes ML Engineer ciblés",
+        "tools": "LinkedIn Jobs"
+      }],
+      "mini": {
+        "emoji": "🧭",
+        "title": "Préparation Entretiens ML Engineer",
+        "desc": "2 mock interviews system design ML Engineer, révision des implémentations from scratch, portfolio orienté impact business, candidatures envoyées à des postes ML Engineer ciblés.",
+        "tags": ["ML System Design", "Entretiens", "Portfolio", "Candidatures"]
+      }
+    }],
+    "full": {
+      "title": "Plateforme MLOps de Recommandation Temps Réel à l'Échelle",
+      "desc": "Plateforme complète de niveau ML Engineer: pipeline de données Spark+Airflow alimentant un feature store (Feast), modèle de recommandation en deux étages servi via Triton à faible latence, avec ingestion temps réel Kafka pour les signaux récents, A/B testing intégré pour valider chaque amélioration, et dashboard d'observabilité avec retraining automatisé. Le tout démontrant une maîtrise de bout en bout des systèmes ML en production à l'échelle.",
+      "deliverables": ["Pipeline de données Spark/Airflow documenté", "Feature store Feast opérationnel (online+offline)", "Service de serving à faible latence (Triton/ONNX)", "Pipeline Kafka temps réel intégré", "Framework d'A/B testing pour valider les modèles", "Dashboard d'observabilité + retraining automatisé", "Rapport d'impact business (métriques avant/après)"],
+      "stack": "PySpark · Airflow · Feast · Triton · Kafka · Evidently AI",
+      "duration": "7-10 jours (fin semaine 32)"
+    }
+  }, {
+    "id": 5,
+    "icon": "👑",
+    "title": "Étape 5",
+    "subtitle": "AI/ML Engineer",
+    "color": "#d97706",
+    "light": "#fffbeb",
+    "border": "#fde68a",
+    "duration": "1 mois",
+    "goal": "Spécialisation · Projet Phare Final · Leadership · Recherche d'Emploi Senior",
+    "weeks": [{
+      "id": "w33",
+      "num": 33,
+      "title": "Semaine 33 — Spécialisation & Veille",
+      "days": [{
+        "d": "Lun",
+        "focus": "Choisir sa spécialisation: GenAI Platform / MLOps Lead / Applied Research — analyse de marché",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Veille papiers: lire et résumer 3 papiers récents pertinents pour ta spécialisation",
+        "tools": "arXiv, Papers With Code"
+      }, {
+        "d": "Mer",
+        "focus": "Contribution open-source: identifier un projet ML/IA pertinent, proposer une contribution",
+        "tools": "GitHub"
+      }, {
+        "d": "Jeu",
+        "focus": "Implémentation de la contribution: code, tests, documentation",
+        "tools": "GitHub"
+      }, {
+        "d": "Ven",
+        "focus": "Soumission de la Pull Request + itération sur les retours des maintainers",
+        "tools": "GitHub"
+      }, {
+        "d": "Sam",
+        "focus": "Finalisation de la contribution open-source",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Rédaction d'un résumé de veille technique (3 papiers + apprentissages)",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🔭",
+        "title": "Contribution Open-Source & Veille Technique",
+        "desc": "Une Pull Request soumise (idéalement mergée) sur un projet ML/IA reconnu, accompagnée d'un résumé écrit de 3 papiers récents pertinents pour ta spécialisation choisie.",
+        "tags": ["Open-Source", "Veille", "Spécialisation", "arXiv"]
+      }
+    }, {
+      "id": "w34",
+      "num": 34,
+      "title": "Semaine 34 — Projet Phare Final: Conception",
+      "days": [{
+        "d": "Lun",
+        "focus": "Cadrage: définir le problème, les utilisateurs, les contraintes du projet phare final",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Architecture: choisir et justifier la stack (GenAI + ML classique + MLOps combinés)",
+        "tools": ""
+      }, {
+        "d": "Mer",
+        "focus": "Design doc complet: diagrammes C4, ADRs, plan de déploiement, plan de tests",
+        "tools": "Mermaid, Excalidraw"
+      }, {
+        "d": "Jeu",
+        "focus": "Revue du design: obtenir un feedback (mentor, communauté, pairs) et itérer",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Plan d'exécution: découpage en tâches, priorisation, planning sur 2 semaines",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Setup du projet: repo, CI/CD de base, environnements",
+        "tools": "GitHub Actions"
+      }, {
+        "d": "Dim",
+        "focus": "Finalisation du design doc + validation du plan",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "📐",
+        "title": "Design Doc du Projet Phare Final",
+        "desc": "Document de conception complet pour le projet phare final: problème, architecture justifiée, diagrammes C4, ADRs, plan de tests et de déploiement, découpage en tâches sur 2 semaines.",
+        "tags": ["Design Doc", "Architecture", "Planning", "C4"]
+      }
+    }, {
+      "id": "w35",
+      "num": 35,
+      "title": "Semaine 35 — Projet Phare Final: Implémentation & Déploiement",
+      "days": [{
+        "d": "Lun",
+        "focus": "Implémentation du cœur du système (composant GenAI ou ML selon le projet)",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "Implémentation du second composant (ML classique ou GenAI, l'autre moitié)",
+        "tools": ""
+      }, {
+        "d": "Mer",
+        "focus": "Intégration MLOps: CI/CD, monitoring, sécurité, optimisation de coût",
+        "tools": ""
+      }, {
+        "d": "Jeu",
+        "focus": "Tests de bout en bout + tests de charge",
+        "tools": "Locust"
+      }, {
+        "d": "Ven",
+        "focus": "Déploiement en environnement de production (staging puis prod)",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Rédaction de la documentation finale + README professionnel",
+        "tools": ""
+      }, {
+        "d": "Dim",
+        "focus": "Enregistrement de la démo vidéo + finalisation",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🏗",
+        "title": "Implémentation du Projet Phare Final",
+        "desc": "Semaine d'implémentation intensive: construire, tester, déployer et documenter le projet phare final qui combine IA générative, ML classique et bonnes pratiques MLOps de bout en bout.",
+        "tags": ["Implémentation", "Déploiement", "MLOps", "Documentation"]
+      }
+    }, {
+      "id": "w36",
+      "num": 36,
+      "title": "Semaine 36 — Branding Pro & Recherche d'Emploi Senior",
+      "days": [{
+        "d": "Lun",
+        "focus": "Portfolio final: présenter les 5 projets phares avec impact et décisions techniques",
+        "tools": ""
+      }, {
+        "d": "Mar",
+        "focus": "CV Senior: positionnement, expérience condensée, mots-clés pour postes hybrides AI/ML",
+        "tools": ""
+      }, {
+        "d": "Mer",
+        "focus": "LinkedIn & marque personnelle: article technique sur le projet phare final",
+        "tools": "LinkedIn"
+      }, {
+        "d": "Jeu",
+        "focus": "Simulation de négociation salariale: scénarios, ancres, contre-propositions",
+        "tools": ""
+      }, {
+        "d": "Ven",
+        "focus": "Stratégie de candidature: cibler les bonnes entreprises, réseauter, référencement",
+        "tools": ""
+      }, {
+        "d": "Sam",
+        "focus": "Candidatures: postuler à des postes AI/ML Engineer Senior ciblés",
+        "tools": "LinkedIn Jobs"
+      }, {
+        "d": "Dim",
+        "focus": "Bilan complet du parcours + plan de progression continue post-roadmap",
+        "tools": ""
+      }],
+      "mini": {
+        "emoji": "🚀",
+        "title": "Lancement Recherche d'Emploi Senior",
+        "desc": "Portfolio final présentant les 5 projets phares, CV et LinkedIn optimisés pour des postes seniors hybrides AI/ML, simulation de négociation salariale, et campagne de candidatures ciblée lancée.",
+        "tags": ["Portfolio Final", "Négociation", "Candidatures", "Bilan"]
+      }
+    }],
+    "full": {
+      "title": "Plateforme AI/ML de Production de Bout en Bout — Projet Vedette",
+      "desc": "LE projet qui synthétise tout le parcours: une plateforme combinant un composant IA générative (agent ou RAG avancé) et un composant ML classique (scoring, recommandation ou prédiction), unifiés par une couche MLOps complète (CI/CD, monitoring, sécurité, optimisation de coût) et déployés en production. Documentation d'architecture de niveau senior, démo vidéo professionnelle. C'est ton projet vedette ultime pour décrocher un poste AI/ML Engineer senior.",
+      "deliverables": ["Plateforme déployée et accessible en ligne (URL publique)", "Composant GenAI + composant ML classique intégrés", "Couche MLOps complète (CI/CD, monitoring, sécurité)", "Documentation d'architecture niveau senior (C4, ADRs)", "Démo vidéo professionnelle (5 min)", "Article de blog technique publié", "Au moins 1 contribution open-source associée"],
+      "stack": "Stack combinée des 4 étapes précédentes — à toi de choisir selon ta spécialisation",
+      "duration": "10-12 jours (semaines 34-36)"
+    }
+  }],
+  "TIPS": [{
+    "icon": "⏰",
+    "text": "4-6h/jour en semaine · 6-8h le week-end — adapte selon ton emploi du temps"
+  }, {
+    "icon": "💻",
+    "text": "Coder chaque jour — même 30 min comptent, la régularité prime sur l'intensité"
+  }, {
+    "icon": "📤",
+    "text": "Tout pusher sur GitHub avec des commits clairs, dès l'Étape 1"
+  }, {
+    "icon": "🐦",
+    "text": "Partager tes avancées sur LinkedIn à chaque fin d'étape"
+  }, {
+    "icon": "🏆",
+    "text": "1-2 compétitions Kaggle pour le CV pendant l'Étape 2"
+  }, {
+    "icon": "📖",
+    "text": "Papers With Code & blogs techniques pour rester à jour, surtout à partir de l'Étape 3"
+  }, {
+    "icon": "📈",
+    "text": "\"Senior\" s'obtient aussi par l'expérience terrain — ce programme prépare et accélère, mais rien ne remplace les années en poste"
+  }, {
+    "icon": "🔁",
+    "text": "9 mois c'est un marathon, pas un sprint — prévois des semaines plus légères si besoin plutôt que d'abandonner"
+  }],
+  "RESOURCES": [["🎓", "Fast.ai", "Cours DL pratique et gratuit — parfait pour démarrer"], ["🤗", "Hugging Face Docs", "La référence pour tout ce qui est NLP et LLMs"], ["📄", "Papers With Code", "Les derniers papiers avec le code officiel"], ["🏆", "Kaggle", "Compétitions + notebooks de la communauté + datasets"], ["📺", "Andrej Karpathy (YouTube)", "Les meilleures vidéos sur les LLMs — Neural Nets: Zero to Hero"], ["💬", "Discord ML France", "Communauté francophone pour les questions"], ["🔧", "LangChain Docs", "Documentation officielle complète"], ["⚡", "FastAPI Docs", "La meilleure documentation d'un framework ever"], ["📘", "Designing Machine Learning Systems (Chip Huyen)", "La référence pour penser les systèmes ML comme un Senior/MLE"], ["✍️", "Eugene Yan — eugeneyan.com", "Blog sur le ML appliqué en production, très orienté pratique"], ["🗂", "ml-ops.org", "Ressources structurées sur les bonnes pratiques MLOps"], ["💼", "Levels.fyi", "Benchmark de salaires tech par niveau (junior à senior)"]],
+  "SCHEDULE": [["☀️ Matin (2h)", "Nouveau contenu: vidéos, articles, documentation"], ["💻 Après-midi (2-3h)", "Coding: exercices, projet en cours, expérimentations"], ["📝 Soir (30-45min)", "Révision, notes Anki/Notion, push GitHub + commit message clair"]],
+  "JOBS": [{
+    "title": "Python Developer (Junior)",
+    "salary": "$35-60k/an (remote)",
+    "demand": 4
+  }, {
+    "title": "Junior AI Engineer",
+    "salary": "$55-90k/an (remote)",
+    "demand": 5
+  }, {
+    "title": "ML Engineer",
+    "salary": "$90-150k/an (remote)",
+    "demand": 5
+  }, {
+    "title": "Senior AI Engineer",
+    "salary": "$120-180k/an (remote)",
+    "demand": 5
+  }, {
+    "title": "AI/ML Engineer (Senior/Staff)",
+    "salary": "$140-220k/an (remote)",
+    "demand": 4
+  }],
+  "CHECKLIST": [["✅ GitHub", "5 projets phares épinglés (1 par étape) + README pro pour chaque"], ["✅ HuggingFace Hub", "Modèles fine-tunés publiés + model cards"], ["✅ Applications déployées", "Au moins 3 apps live avec URL publique (une par étape clé)"], ["✅ Architecture & Design Docs", "Diagrammes C4 + ADRs pour les projets Étapes 3-5"], ["✅ LinkedIn", "Profil optimisé + 5 posts techniques (1 par étape)"], ["✅ CV", "ATS-friendly, 1 page, projets quantifiés, adapté au niveau visé"], ["✅ Kaggle", "Au moins 1 compétition complétée, top 50%"], ["✅ Open-Source", "Au moins 1 Pull Request mergée sur un projet ML/IA reconnu"], ["✅ Blog technique", "2-3 articles sur Medium ou LinkedIn"]],
+  "JOBSITES": [["LinkedIn Jobs", "Filtrer: Remote, AI Engineer, ML Engineer, par niveau d'expérience"], ["Otta.com", "Spécialisé tech, excellentes offres remote"], ["Wellfound (AngelList)", "Startups tech — très ouvertes aux profils avec projets solides"], ["Remote.co / WeWorkRemotely", "Jobs 100% remote en AI/ML"], ["Toptal / Upwork", "Freelance AI/ML pour construire de l'expérience"], ["HuggingFace Jobs", "Offres spécifiques AI/NLP"], ["Levels.fyi / Blind", "Benchmarker les salaires et avis avant de négocier"]],
+  "totalWeeks": 36,
+  "totalDays": 252,
+  "totalMonths": 9
+};
+const STAGES = DATA.STAGES;
+const TIPS = DATA.TIPS;
+const RESOURCES = DATA.RESOURCES;
+const SCHEDULE = DATA.SCHEDULE;
+const JOBS = DATA.JOBS;
+const CHECKLIST = DATA.CHECKLIST;
+const JOBSITES = DATA.JOBSITES;
+const TOTAL_WEEKS = DATA.totalWeeks;
+const TOTAL_DAYS = DATA.totalDays;
+const TOTAL_MONTHS = DATA.totalMonths;
+const TOTAL_MINI = STAGES.reduce((acc, s) => acc + s.weeks.length, 0);
+const STORAGE_KEY = "aiml-roadmap-progress-v2";
+function loadSaved() {
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch (e) {
+    return {};
+  }
+}
+function Roadmap() {
+  const [activeStage, setActiveStage] = useState(1);
+  const [openWeek, setOpenWeek] = useState(null);
+  const [checked, setChecked] = useState(loadSaved);
+  const [tab, setTab] = useState("plan"); // plan | tips | jobs
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(checked));
+    } catch (e) {
+      // stockage indisponible (mode privé, etc.) — on ignore silencieusement
+    }
+  }, [checked]);
+  const stage = STAGES.find(s => s.id === activeStage);
+  const toggle = id => setChecked(p => ({
+    ...p,
+    [id]: !p[id]
+  }));
+  const toggleWeek = id => setOpenWeek(p => p === id ? null : id);
+  const stageDayCount = stage.weeks.reduce((acc, w) => acc + w.days.length, 0);
+  const stageChecked = stage.weeks.reduce((acc, w) => acc + w.days.filter((_, di) => checked[`${w.id}-${di}`]).length, 0);
+  const pct = Math.round(stageChecked / stageDayCount * 100);
+
+  // Progression globale tous étapes confondues
+  const globalChecked = STAGES.reduce((acc, s) => acc + s.weeks.reduce((a, w) => a + w.days.filter((_, di) => checked[`${w.id}-${di}`]).length, 0), 0);
+  const globalPct = Math.round(globalChecked / TOTAL_DAYS * 100);
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+      maxWidth: 860,
+      margin: "0 auto",
+      padding: 16,
+      background: "#f1f5f9",
+      minHeight: "100vh"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 45%, #312e81 100%)",
+      borderRadius: 20,
+      padding: "28px 22px 22px",
+      color: "white",
+      marginBottom: 16,
+      boxShadow: "0 8px 32px rgba(15,23,42,0.35)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      marginBottom: 6
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 32
+    }
+  }, "\uD83D\uDEF8"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 22,
+      fontWeight: 900,
+      letterSpacing: "-0.5px"
+    }
+  }, "Roadmap Carri\xE8re IA/ML"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      opacity: 0.7,
+      marginTop: 2
+    }
+  }, TOTAL_MONTHS, " mois \xB7 Python Developer \u2192 AI/ML Engineer Senior"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 14,
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: 5
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      opacity: 0.7,
+      fontWeight: 600
+    }
+  }, "Progression globale du parcours"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      fontWeight: 800
+    }
+  }, globalChecked, "/", TOTAL_DAYS, " jours \xB7 ", globalPct, "%")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: 7,
+      background: "rgba(255,255,255,0.15)",
+      borderRadius: 99
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: "100%",
+      width: `${globalPct}%`,
+      background: "linear-gradient(90deg, #38bdf8, #a78bfa, #f59e0b)",
+      borderRadius: 99,
+      transition: "width 0.3s"
+    }
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginTop: 16,
+      marginBottom: 4,
+      overflowX: "auto",
+      paddingBottom: 4,
+      WebkitOverflowScrolling: "touch"
+    }
+  }, STAGES.map((s, i) => /*#__PURE__*/React.createElement("button", {
+    key: s.id,
+    onClick: () => {
+      setActiveStage(s.id);
+      setOpenWeek(null);
+    },
+    style: {
+      minWidth: 92,
+      flexShrink: 0,
+      cursor: "pointer",
+      background: activeStage === s.id ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.06)",
+      border: activeStage === s.id ? `2px solid ${s.color}` : "2px solid transparent",
+      borderRadius: 14,
+      padding: "10px 6px",
+      color: "white",
+      transition: "all 0.15s",
+      position: "relative"
+    }
+  }, i < STAGES.length - 1 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: "absolute",
+      right: -9,
+      top: "50%",
+      transform: "translateY(-50%)",
+      fontSize: 11,
+      opacity: 0.35,
+      zIndex: 1
+    }
+  }, "\u2192"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 20
+    }
+  }, s.icon), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      fontWeight: 800,
+      marginTop: 4,
+      opacity: activeStage === s.id ? 1 : 0.7
+    }
+  }, s.title), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9.5,
+      opacity: 0.6,
+      marginTop: 1,
+      whiteSpace: "nowrap"
+    }
+  }, s.subtitle))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      marginBottom: 14
+    }
+  }, [["plan", "📅 Plan"], ["tips", "💡 Conseils"], ["jobs", "🎯 Objectifs"]].map(([t, label]) => /*#__PURE__*/React.createElement("button", {
+    key: t,
+    onClick: () => setTab(t),
+    style: {
+      flex: 1,
+      padding: "9px 4px",
+      borderRadius: 10,
+      cursor: "pointer",
+      fontWeight: 700,
+      fontSize: 12,
+      background: tab === t ? stage.color : "white",
+      color: tab === t ? "white" : "#64748b",
+      border: tab === t ? `2px solid ${stage.color}` : "2px solid #e2e8f0",
+      transition: "all 0.15s"
+    }
+  }, label))), tab === "plan" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      border: `2px solid ${stage.border}`,
+      borderRadius: 16,
+      padding: 18,
+      marginBottom: 14,
+      borderLeft: `5px solid ${stage.color}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 28
+    }
+  }, stage.icon), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 17,
+      fontWeight: 900,
+      color: stage.color
+    }
+  }, stage.title, " \u2014 ", stage.subtitle), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#64748b",
+      marginTop: 3
+    }
+  }, stage.goal), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#94a3b8",
+      marginTop: 2,
+      fontWeight: 700
+    }
+  }, "\u23F1 Dur\xE9e indicative: ", stage.duration, " (", stage.weeks.length, " semaines)"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: 5
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: "#64748b",
+      fontWeight: 600
+    }
+  }, "Progression de l'\xE9tape"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      fontWeight: 800,
+      color: stage.color
+    }
+  }, stageChecked, "/", stageDayCount, " jours \xB7 ", pct, "%")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: 7,
+      background: "#e2e8f0",
+      borderRadius: 99
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: "100%",
+      width: `${pct}%`,
+      background: stage.color,
+      borderRadius: 99,
+      transition: "width 0.3s"
+    }
+  })))), stage.weeks.map((week, wi) => /*#__PURE__*/React.createElement("div", {
+    key: week.id,
+    style: {
+      marginBottom: 10,
+      borderRadius: 14,
+      overflow: "hidden",
+      border: "1.5px solid #e2e8f0",
+      background: "white",
+      boxShadow: "0 1px 4px rgba(0,0,0,0.04)"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => toggleWeek(week.id),
+    style: {
+      width: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: "13px 16px",
+      background: openWeek === week.id ? stage.light : "white",
+      border: "none",
+      cursor: "pointer",
+      textAlign: "left"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 30,
+      height: 30,
+      borderRadius: "50%",
+      background: stage.color,
+      color: "white",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 12,
+      fontWeight: 800,
+      flexShrink: 0
+    }
+  }, "S", week.num), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 700,
+      fontSize: 13,
+      color: "#1e293b"
+    }
+  }, week.title)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: stage.color,
+      fontSize: 16,
+      marginLeft: 8
+    }
+  }, openWeek === week.id ? "▲" : "▼")), openWeek === week.id && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "2px 14px 16px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      overflowX: "auto",
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("table", {
+    style: {
+      width: "100%",
+      borderCollapse: "collapse",
+      fontSize: 12.5
+    }
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", {
+    style: {
+      background: "#f8fafc"
+    }
+  }, /*#__PURE__*/React.createElement("th", {
+    style: {
+      padding: "8px 10px",
+      textAlign: "left",
+      color: "#94a3b8",
+      fontWeight: 600,
+      width: 56,
+      borderBottom: "1px solid #e2e8f0"
+    }
+  }, "Jour"), /*#__PURE__*/React.createElement("th", {
+    style: {
+      padding: "8px 10px",
+      textAlign: "left",
+      color: "#94a3b8",
+      fontWeight: 600,
+      borderBottom: "1px solid #e2e8f0"
+    }
+  }, "Ce que tu apprends"), /*#__PURE__*/React.createElement("th", {
+    style: {
+      padding: "8px 10px",
+      textAlign: "left",
+      color: "#94a3b8",
+      fontWeight: 600,
+      width: 140,
+      borderBottom: "1px solid #e2e8f0"
+    }
+  }, "Outils"))), /*#__PURE__*/React.createElement("tbody", null, week.days.map((day, di) => {
+    const iid = `${week.id}-${di}`;
+    const done = !!checked[iid];
+    return /*#__PURE__*/React.createElement("tr", {
+      key: di,
+      style: {
+        borderBottom: "1px solid #f1f5f9",
+        background: done ? "#f0fdf4" : "white",
+        transition: "background 0.1s"
+      }
+    }, /*#__PURE__*/React.createElement("td", {
+      style: {
+        padding: "9px 10px"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      onClick: () => toggle(iid),
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 7,
+        cursor: "pointer"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 18,
+        height: 18,
+        borderRadius: 5,
+        flexShrink: 0,
+        background: done ? "#22c55e" : "white",
+        border: `2px solid ${done ? "#22c55e" : "#cbd5e1"}`,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 10,
+        color: "white",
+        fontWeight: 800,
+        transition: "all 0.15s"
+      }
+    }, done ? "✓" : ""), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontWeight: 700,
+        color: done ? "#22c55e" : "#475569",
+        fontSize: 12
+      }
+    }, day.d))), /*#__PURE__*/React.createElement("td", {
+      style: {
+        padding: "9px 10px",
+        color: done ? "#9ca3af" : "#334155",
+        textDecoration: done ? "line-through" : "none",
+        lineHeight: 1.4
+      }
+    }, day.focus), /*#__PURE__*/React.createElement("td", {
+      style: {
+        padding: "9px 10px"
+      }
+    }, day.tools && /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 10.5,
+        color: stage.color,
+        background: stage.light,
+        padding: "2px 8px",
+        borderRadius: 20,
+        fontWeight: 600,
+        whiteSpace: "nowrap"
+      }
+    }, day.tools)));
+  })))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: `linear-gradient(135deg, ${stage.light} 0%, #fff 100%)`,
+      border: `1.5px solid ${stage.border}`,
+      borderRadius: 12,
+      padding: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      marginBottom: 7
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 22
+    }
+  }, week.mini.emoji), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      fontWeight: 700,
+      color: "#94a3b8",
+      textTransform: "uppercase",
+      letterSpacing: "0.5px"
+    }
+  }, "Mini-Projet Semaine"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 800,
+      color: stage.color
+    }
+  }, week.mini.title))), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 12.5,
+      color: "#475569",
+      margin: "0 0 10px",
+      lineHeight: 1.55
+    }
+  }, week.mini.desc), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 5
+    }
+  }, week.mini.tags.map(tag => /*#__PURE__*/React.createElement("span", {
+    key: tag,
+    style: {
+      background: stage.color,
+      color: "white",
+      padding: "3px 10px",
+      borderRadius: 20,
+      fontSize: 10.5,
+      fontWeight: 700
+    }
+  }, tag))))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      border: `2px solid ${stage.color}`,
+      borderRadius: 18,
+      padding: 20,
+      marginTop: 8,
+      boxShadow: `0 4px 20px ${stage.color}22`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      alignItems: "flex-start",
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 28
+    }
+  }, "\uD83C\uDFC6"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      fontWeight: 700,
+      color: "#94a3b8",
+      textTransform: "uppercase",
+      letterSpacing: "0.5px"
+    }
+  }, "Projet Phare \u2014 ", stage.title), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 900,
+      color: stage.color,
+      lineHeight: 1.3
+    }
+  }, stage.full.title))), /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 13,
+      color: "#475569",
+      marginBottom: 14,
+      lineHeight: 1.6
+    }
+  }, stage.full.desc), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontWeight: 800,
+      color: "#1e293b",
+      marginBottom: 7
+    }
+  }, "\uD83D\uDCE6 Livrables attendus:"), stage.full.deliverables.map((d, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      gap: 7,
+      fontSize: 12.5,
+      color: "#475569",
+      marginBottom: 5,
+      alignItems: "flex-start"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: stage.color,
+      fontWeight: 800,
+      flexShrink: 0
+    }
+  }, "\u2192"), /*#__PURE__*/React.createElement("span", null, d)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      background: stage.light,
+      color: stage.color,
+      padding: "5px 12px",
+      borderRadius: 20,
+      fontWeight: 700
+    }
+  }, "\uD83D\uDEE0 ", stage.full.stack), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      background: "#fef3c7",
+      color: "#92400e",
+      padding: "5px 12px",
+      borderRadius: 20,
+      fontWeight: 700
+    }
+  }, "\u23F1 ", stage.full.duration)))), tab === "tips" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      borderRadius: 16,
+      padding: 20,
+      marginBottom: 12,
+      border: "1.5px solid #e2e8f0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 900,
+      fontSize: 16,
+      marginBottom: 14,
+      color: "#1e293b"
+    }
+  }, "\uD83D\uDCA1 R\xE8gles pour r\xE9ussir ces ", TOTAL_MONTHS, " mois"), TIPS.map((t, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 12,
+      padding: "12px 14px",
+      background: "#f8fafc",
+      borderRadius: 12,
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 22,
+      flexShrink: 0
+    }
+  }, t.icon), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13.5,
+      color: "#334155",
+      lineHeight: 1.45,
+      fontWeight: 500
+    }
+  }, t.text)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      borderRadius: 16,
+      padding: 20,
+      marginBottom: 12,
+      border: "1.5px solid #e2e8f0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 900,
+      fontSize: 16,
+      marginBottom: 14,
+      color: "#1e293b"
+    }
+  }, "\uD83D\uDCDA Ressources Cl\xE9s"), RESOURCES.map(([icon, name, desc], i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      gap: 10,
+      padding: "10px 14px",
+      background: i % 2 === 0 ? "#f8fafc" : "white",
+      borderRadius: 10,
+      marginBottom: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 20,
+      flexShrink: 0
+    }
+  }, icon), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      fontSize: 13,
+      color: "#1e293b"
+    }
+  }, name), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#64748b"
+    }
+  }, desc))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      borderRadius: 16,
+      padding: 20,
+      border: "1.5px solid #e2e8f0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 900,
+      fontSize: 16,
+      marginBottom: 14,
+      color: "#1e293b"
+    }
+  }, "\uD83D\uDDD3 Organisation Journali\xE8re Recommand\xE9e"), SCHEDULE.map(([time, desc], i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      gap: 14,
+      padding: "12px 14px",
+      background: "#f8fafc",
+      borderRadius: 12,
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 800,
+      color: "#7c3aed",
+      minWidth: 120,
+      flexShrink: 0
+    }
+  }, time), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: "#475569"
+    }
+  }, desc))))), tab === "jobs" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      borderRadius: 16,
+      padding: 20,
+      marginBottom: 12,
+      border: "1.5px solid #e2e8f0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 900,
+      fontSize: 16,
+      marginBottom: 4,
+      color: "#1e293b"
+    }
+  }, "\uD83C\uDFAF Progression des Postes (5 \xC9tapes)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#64748b",
+      marginBottom: 16
+    }
+  }, "Salaires remote international (USD), ordre de grandeur. Varie fortement selon exp\xE9rience r\xE9elle, pays et portfolio."), JOBS.map((j, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: "14px 16px",
+      background: i % 2 === 0 ? "#f8fafc" : "white",
+      borderRadius: 12,
+      marginBottom: 8,
+      borderLeft: `3px solid ${STAGES[i] ? STAGES[i].color : "#e2e8f0"}`
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      fontWeight: 700,
+      color: "#94a3b8",
+      textTransform: "uppercase"
+    }
+  }, STAGES[i] ? STAGES[i].title : ""), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 800,
+      fontSize: 14,
+      color: "#1e293b"
+    }
+  }, j.title), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#22c55e",
+      fontWeight: 700,
+      marginTop: 2
+    }
+  }, j.salary)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "right"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#64748b",
+      marginBottom: 3
+    }
+  }, "Demande march\xE9"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 2
+    }
+  }, Array.from({
+    length: 5
+  }).map((_, k) => /*#__PURE__*/React.createElement("div", {
+    key: k,
+    style: {
+      width: 8,
+      height: 8,
+      borderRadius: "50%",
+      background: k < j.demand ? "#f59e0b" : "#e2e8f0"
+    }
+  }))))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      borderRadius: 16,
+      padding: 20,
+      marginBottom: 12,
+      border: "1.5px solid #e2e8f0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 900,
+      fontSize: 16,
+      marginBottom: 14,
+      color: "#1e293b"
+    }
+  }, "\uD83D\uDCCB Checklist Portfolio Final (\xC9tape 5)"), CHECKLIST.map(([badge, text], i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      gap: 10,
+      fontSize: 13,
+      padding: "9px 12px",
+      background: "#f0fdf4",
+      borderRadius: 10,
+      marginBottom: 7,
+      color: "#166534"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      flexShrink: 0
+    }
+  }, badge), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 500
+    }
+  }, text)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "linear-gradient(135deg, #1e1b4b, #312e81)",
+      borderRadius: 16,
+      padding: 20,
+      color: "white"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 900,
+      fontSize: 16,
+      marginBottom: 12
+    }
+  }, "\uD83D\uDE80 O\xF9 chercher du travail ?"), JOBSITES.map(([platform, tip], i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      padding: "10px 12px",
+      background: "rgba(255,255,255,0.1)",
+      borderRadius: 10,
+      marginBottom: 7
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 800,
+      fontSize: 13
+    }
+  }, platform), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      opacity: 0.7,
+      marginTop: 2
+    }
+  }, tip))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: "20px 0 8px",
+      fontSize: 11,
+      color: "#94a3b8"
+    }
+  }, TOTAL_MONTHS, " mois \xB7 ", TOTAL_DAYS, " jours \xB7 ", TOTAL_WEEKS, " semaines \xB7 ", TOTAL_MINI, " mini-projets \xB7 5 projets phares \xB7 5 \xE9tapes de carri\xE8re"));
+}
+
+    var root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(React.createElement(Roadmap));
+  }
+
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    boot();
+  } else {
+    document.addEventListener("DOMContentLoaded", boot);
+  }
+})();
+</script>
+</body>
+</html>
