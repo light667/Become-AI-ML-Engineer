@@ -1,0 +1,1 @@
+Cours Python Avancé Youtube : https://youtube.com/playlist?list=PLuWyq_EO5_AL9n8Xtt0Cn5UR_bL80e0IB&si=ypwtrEghisatwNfg
